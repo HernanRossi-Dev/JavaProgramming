@@ -1,11 +1,6 @@
-package com.company.Strings;
+package ca.hernanrossi.Strings;
 
-import com.company.LinkedLists.LinkedListNode;
-import com.company.LinkedLists.TwoPointEight;
-
-import java.util.Random;
-
-public class Main {
+public class StringsTest {
 
     public static void main(String[] args) {
         //OnePointOne questionOne = new OnePointOne(test);
