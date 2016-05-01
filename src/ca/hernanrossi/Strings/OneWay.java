@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/15/2016.
  */
-public class OnePointFive {
+public class OneWay {
 
     public void QuestionFive() {
 

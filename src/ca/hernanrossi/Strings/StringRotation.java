@@ -6,8 +6,8 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/17/2016.
  */
-public class OnePointNine {
-    OnePointNine(){
+public class StringRotation {
+    StringRotation(){
         // Constructor
     }
 

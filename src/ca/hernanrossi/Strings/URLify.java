@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/12/2016.
  */
-public class OnePointThree {
+public class URLify {
 
     public void QuestionThree(){
 

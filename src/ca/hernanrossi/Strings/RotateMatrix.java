@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * Created by herna on 4/15/2016.
  */
-public class OnePointSeven {
+public class RotateMatrix {
     public void OnePointSeven(){
 
     }

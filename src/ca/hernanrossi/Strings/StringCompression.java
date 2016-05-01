@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/15/2016.
  */
-public class OnePointSix {
+public class StringCompression {
 
     public void OnePointSix() {
     }

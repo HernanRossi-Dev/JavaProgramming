@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/14/2016.
  */
-public class OnePointFour {
+public class PalindromePermutation {
 
     public void Question4() {
 

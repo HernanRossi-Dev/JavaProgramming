@@ -3,35 +3,35 @@ package ca.hernanrossi.Strings;
 public class StringsTest {
 
     public static void main(String[] args) {
-        //OnePointOne questionOne = new OnePointOne(test);
+        //IsUnique questionOne = new IsUnique(test);
         //questionOne.run();
 
-        //OnePointTwo q2 = new OnePointTwo();
+        //CheckPermutation q2 = new CheckPermutation();
        //System.out.println("Question two is :" +  q2.test());
-       // OnePointThree q3 = new OnePointThree();
+       // URLify q3 = new URLify();
         //q3.run();
         //System.out.println(q3.run2());
-        //OnePointFour q4 = new OnePointFour();
+        //PalindromePermutation q4 = new PalindromePermutation();
         //System.out.println("The result was : " + q4.run());
-        //OnePointFive q5 = new OnePointFive();
+        //OneWay q5 = new OneWay();
         //out("The result was : " + q5.run());
-        //OnePointSix q16 = new OnePointSix();
+        //StringCompression q16 = new StringCompression();
         //out("The result was : " + q16.run());
-        /*OnePointSeven q17 = new OnePointSeven();
+        /*RotateMatrix q17 = new RotateMatrix();
         int[][] input = new int[][]{
                 {1,2,3,4},
                 {1,2,3,4},
                 {1,2,3,4},
                 {1,2,3,4},};
         q17.run(input);*/
-       /* OnePointEight q8 = new OnePointEight();
+       /* ZeroMatrix q8 = new ZeroMatrix();
         int[][] input = new int[][] {
                 {1,2,3,4,5},
                 {1,2,3,0,5},
                 {1,2,0,4,5},
                 {1,2,3,4,5},};
         q8.run(input);*/
-        //OnePointNine q9 = new OnePointNine();
+        //StringRotation q9 = new StringRotation();
         //out("The out put of one point nine is: " + q9.run());
 
     }

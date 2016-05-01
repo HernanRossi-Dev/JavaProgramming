@@ -6,29 +6,31 @@ import java.util.ArrayList;
  * Created by Hernan Rossi
  *********************************************************************************************************************/
 public class TreesGraphsTest {
-    public static void main(String[] args){
-        ArrayList<Integer> ordered = new ArrayList<>();
-        for(int i =0 ; i <= 10; i++){
-            ordered.add(i);
-        }
-        MinimalTree<Integer> test = new MinimalTree(ordered);
-        BinaryTreeNode<Integer> root = test.createMinimalTree();
-        BinaryTreeTraversal<Integer> traversal = new BinaryTreeTraversal<>();
-        System.out.println("In order");
-        traversal.inOrderTraversal(root);
-        System.out.println("");
-        System.out.println("pre order");
-        traversal.preOrderTraversal(root);
-        System.out.println("");
-        System.out.println("post order");
-        traversal.postOrderTraversal(root);
-        System.out.println("");
-
-
-        //testDirectedGraphDFS();
+    public static void main(String[] args) {
+        testMinimalTree();
     }
 
 
+
+    public static void testMinimalTree(){
+            ArrayList<Integer> ordered = new ArrayList<>();
+            for(int i =0 ; i <= 10; i++){
+                ordered.add(i);
+            }
+            MinimalTree<Integer> test = new MinimalTree(ordered);
+            BinaryTreeNode<Integer> root = test.createMinimalTree();
+            BinaryTreeTraversal<Integer> traversal = new BinaryTreeTraversal<>();
+            System.out.println("In order");
+            traversal.inOrderTraversal(root);
+            System.out.println("");
+            System.out.println("pre order");
+            traversal.preOrderTraversal(root);
+            System.out.println("");
+            System.out.println("post order");
+            traversal.postOrderTraversal(root);
+            System.out.println("");
+            //testDirectedGraphDFS();
+    }
 
     public static void testDirectedGraphDFS(){
         DirectedGraph<Integer> graph = new DirectedGraph();

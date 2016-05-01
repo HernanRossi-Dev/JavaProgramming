@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by herna on 4/12/2016.
  */
-public class OnePointTwo {
+public class CheckPermutation {
 
     public void QuestionTwo() {
         // constructor

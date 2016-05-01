@@ -7,9 +7,9 @@ import java.util.LinkedList;
 /**
  * Created by herna on 4/17/2016.
  */
-public class OnePointEight {
+public class ZeroMatrix {
 
-    OnePointEight(){
+    ZeroMatrix(){
 
     }
 

@@ -5,11 +5,11 @@ import java.util.Hashtable;
 /**
  * Created by Hernan Rossi on 4/11/2016.
  */
-public class OnePointOne {
+public class IsUnique {
 
     private String test;
 
-    public OnePointOne(String test) {
+    public IsUnique(String test) {
         this.test = test;
     }
 
