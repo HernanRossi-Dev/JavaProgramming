@@ -55,10 +55,6 @@ public class CheckPermutation {
         }
         if(space_count != 0) {
             return false;
-        } else if ( !hmap.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return hmap.isEmpty();
     }
 }

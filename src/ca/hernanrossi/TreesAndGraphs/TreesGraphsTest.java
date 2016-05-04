@@ -11,9 +11,49 @@ public class TreesGraphsTest {
     public static void main(String[] args) {
         //testMinimalTree();
         //testListOfDepths();
-        testCheckBalanced();
+        //testCheckBalanced();
+        testValidateBST();
     }
 
+
+    /******************************************************************************************************************
+     *
+     */
+
+    private static void testValidateBST(){
+        BinaryTreeNode<Integer> root  = new BinaryTreeNode<>(7);
+        BinaryTreeNode<Integer> twoOne  = new BinaryTreeNode<>(4);
+        BinaryTreeNode<Integer> twoTwo  = new BinaryTreeNode<>(10);
+        root.setLeftChild(twoOne);
+        root.setRightChild(twoTwo);
+        BinaryTreeNode<Integer> threeOne  = new BinaryTreeNode<>(2);
+        BinaryTreeNode<Integer> threeTwo  = new BinaryTreeNode<>(6);
+        twoOne.setLeftChild(threeOne);
+        twoOne.setRightChild(threeTwo);
+        BinaryTreeNode<Integer> threeThree  = new BinaryTreeNode<>(8);
+        twoTwo.setLeftChild(threeThree);
+        BinaryTreeNode<Integer> threeFour  = new BinaryTreeNode<>(11);
+        twoTwo.setRightChild(threeFour);
+        BinaryTreeNode<Integer> fourOne  = new BinaryTreeNode<>(1);
+        threeOne.setLeftChild(fourOne);
+        BinaryTreeNode<Integer> fourTwo  = new BinaryTreeNode<>(3);
+        threeOne.setRightChild(fourTwo);
+        BinaryTreeNode<Integer> fourThree  = new BinaryTreeNode<>(5);
+        threeTwo.setLeftChild(fourThree);
+        BinaryTreeNode<Integer> fourSix  = new BinaryTreeNode<>(9);
+        threeThree.setRightChild(fourSix);
+
+        ValidateBST test = new ValidateBST();
+        boolean result = test.validate(root);
+        System.out.println("The result of validating a binary search tree is: " + result);
+        BinaryTreeNode<Integer> rootNonBinarySearchTree = createThreeLevelCompleteTree();
+        result = test.validate(rootNonBinarySearchTree);
+        System.out.println("The result of validating a non binary search tree is: " + result);
+
+
+
+
+    }
     /******************************************************************************************************************
      *
      */
@@ -61,7 +101,7 @@ public class TreesGraphsTest {
                 BinaryTreeNode<Integer> leftChild = new BinaryTreeNode<>(((int) Math.pow(2, i+1)) + 2*j);
                 current.setLeftChild(leftChild);
                 queue.addFirst(leftChild);
-                BinaryTreeNode<Integer> rightChild = new BinaryTreeNode<>(((int) Math.pow(2, i+1)) + (2*j)+1);
+                BinaryTreeNode<Integer> rightChild = new BinaryTreeNode<>((int)Math.pow(2, i+1) + (2*j)+1);
                 current.setRightChild(rightChild);
                 queue.addFirst(rightChild);
             }

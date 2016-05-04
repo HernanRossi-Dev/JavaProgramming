@@ -11,10 +11,7 @@ public class CheckBalanced {
 
     public boolean run(BinaryTreeNode root){
         this.root = root;
-        if(recurseTreeLevels(root) == -1){
-            return false;
-        }
-        return true;
+        return recurseTreeLevels(root) != -1;
     }
 
     private int recurseTreeLevels(BinaryTreeNode node){

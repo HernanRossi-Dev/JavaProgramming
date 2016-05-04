@@ -53,7 +53,7 @@ public class DirectedGraph<T> {
                  int label = iter.next();
                  System.out.print(label + " ");
              }
-             return (path !=null ? true : false);
+             return (path != null);
          }
      }
     /*****************************************************************************************************************

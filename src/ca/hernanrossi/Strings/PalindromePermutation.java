@@ -51,11 +51,7 @@ public class PalindromePermutation {
                     number_of_odd++;
                 }
             }
-            if(number_of_odd != 1) {
-                return false;
-            }else {
-                return  true;
-            }
+            return number_of_odd == 1;
         }
     }
 
