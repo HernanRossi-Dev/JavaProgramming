@@ -1,15 +1,92 @@
 package ca.hernanrossi.TreesAndGraphs;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**********************************************************************************************************************
  * Created by Hernan Rossi
  *********************************************************************************************************************/
 public class TreesGraphsTest {
     public static void main(String[] args) {
-        testMinimalTree();
+        //testMinimalTree();
+        //testListOfDepths();
+        testCheckBalanced();
     }
 
+    /******************************************************************************************************************
+     *
+     */
+    public static void testCheckBalanced(){
+        BinaryTreeNode<Integer> rootNonBalanced  = new BinaryTreeNode<>(1);
+        BinaryTreeNode<Integer> twoOne  = new BinaryTreeNode<>(6);
+        BinaryTreeNode<Integer> twoTwo  = new BinaryTreeNode<>(9);
+        rootNonBalanced.setLeftChild(twoOne);
+        rootNonBalanced.setRightChild(twoTwo);
+        BinaryTreeNode<Integer> threeOne  = new BinaryTreeNode<>(5);
+        BinaryTreeNode<Integer> threeTwo  = new BinaryTreeNode<>(7);
+        twoOne.setLeftChild(threeOne);
+        twoOne.setRightChild(threeTwo);
+        BinaryTreeNode<Integer> threeFour  = new BinaryTreeNode<>(11);
+        twoTwo.setRightChild(threeFour);
+        BinaryTreeNode<Integer> fourOne  = new BinaryTreeNode<>(4);
+        threeOne.setLeftChild(fourOne);
+        BinaryTreeNode<Integer> fourEight  = new BinaryTreeNode<>(12);
+        threeFour.setRightChild(fourEight);
+        BinaryTreeNode<Integer> fiveOne  = new BinaryTreeNode<>(3);
+        fourOne.setLeftChild(fiveOne);
+
+        CheckBalanced test = new CheckBalanced();
+        boolean result = test.run(rootNonBalanced);
+        System.out.println("The result of checking the balance of the tree is: " + result);
+        result = test.run(threeOne);
+        System.out.println("The result of checking the balance of the tree is: " + result);
+        result = test.run(fourOne);
+        System.out.println("The result of checking the balance of the tree is: " + result);
+        BinaryTreeNode<Integer> rootBalanced = createThreeLevelCompleteTree();
+        result = test.run(rootBalanced);
+        System.out.println("The result of checking the balance of the tree is: " + result);
+
+    }
+
+
+    public static BinaryTreeNode createThreeLevelCompleteTree(){
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
+        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+        queue.addFirst(root);
+        // Create a new binary tree with arbitrary nodes
+        for(int i = 0; i < 3; i++){
+            for(int j =0; j< Math.pow(2,i); j++) {
+                BinaryTreeNode<Integer> current = queue.removeLast();
+                BinaryTreeNode<Integer> leftChild = new BinaryTreeNode<>(((int) Math.pow(2, i+1)) + 2*j);
+                current.setLeftChild(leftChild);
+                queue.addFirst(leftChild);
+                BinaryTreeNode<Integer> rightChild = new BinaryTreeNode<>(((int) Math.pow(2, i+1)) + (2*j)+1);
+                current.setRightChild(rightChild);
+                queue.addFirst(rightChild);
+            }
+        }
+        return root;
+    }
+    /******************************************************************************************************************
+     *
+     */
+    public static void testListOfDepths(){
+        BinaryTreeNode<Integer> root = createThreeLevelCompleteTree();
+        ListOfDepths listOfDepths = new ListOfDepths(root);
+        LinkedList<LinkedList<BinaryTreeNode>> result = listOfDepths.createLevelLists();
+        // Print out the levels of the tree
+        Iterator<LinkedList<BinaryTreeNode>>  iterator = result.iterator();
+        while(iterator.hasNext()){
+            LinkedList<BinaryTreeNode> currentLevel = iterator.next();
+            Iterator<BinaryTreeNode> levelIterator = currentLevel.iterator();
+            while(levelIterator.hasNext()){
+                BinaryTreeNode currentNode = levelIterator.next();
+                System.out.print(currentNode.getData() + " ");
+            }
+            System.out.println("");
+        }
+    }
 
 
     public static void testMinimalTree(){

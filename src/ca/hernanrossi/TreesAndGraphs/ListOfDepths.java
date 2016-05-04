@@ -1,6 +1,9 @@
 package ca.hernanrossi.TreesAndGraphs;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**********************************************************************************************************************
  * Created by Hernan Rossi
@@ -15,7 +18,8 @@ import java.util.LinkedList;
 public class ListOfDepths {
     private BinaryTreeNode root;
     private LinkedList<LinkedList<BinaryTreeNode>> listOFLevels;
-    private int levelCount;
+    LinkedList<BinaryTreeNode> BFSQueue = new LinkedList<>();
+    int nodeCount=0;
 
     /*******************************************************************************************************************
      *                                      Constructor()
@@ -25,7 +29,6 @@ public class ListOfDepths {
     ListOfDepths(BinaryTreeNode root){
         this.root = root;
         this.listOFLevels = new LinkedList();
-        this.levelCount =0;
     }
 
     /******************************************************************************************************************
@@ -38,13 +41,47 @@ public class ListOfDepths {
         if(root == null){
             return null;
         }
-        int nodeCount=0;
+        // Create  a single element linked list for the root node and add it to the first item
         LinkedList<BinaryTreeNode> nodeList = new LinkedList<>();
-
-
-
-
+        BFSQueue.addFirst(root);
+        BinaryTreeNode current;
+        int levelCount =0;
+        // Count the nodes even if they are null so that the levels can be tracked
+        while(!BFSQueue.isEmpty()) {
+            current = BFSQueue.removeLast();
+            if(current ==null){
+                nodeCount++;
+                continue;
+            }
+            nodeCount++;
+            System.out.println(nodeCount);
+            // Check to see if it has children and add them to the queue
+            getChildren(current);
+            // If the current node is in a new level create a new list
+            if(nodeCount == Math.pow(2, levelCount)){
+                levelCount++;
+                nodeList = new LinkedList<>();
+                nodeList.add(current);
+                listOFLevels.add(nodeList);
+            }else{
+                nodeList.add(current);
+            }
+        }
+        System.out.println("");
         return listOFLevels;
+    }
+
+    /******************************************************************************************************************
+     *                                      getChildren()
+     * @param current
+     *              Check the left and right children node of the current node and if they are not null add them to the
+     *                  front of the BFS queue
+     ******************************************************************************************************************/
+    private void getChildren(BinaryTreeNode current){
+        BinaryTreeNode leftChild = current.getLeftChild();
+        BFSQueue.addFirst(leftChild);
+        BinaryTreeNode rightChild = current.getRightChild();
+        BFSQueue.addFirst(rightChild);
     }
 
 
